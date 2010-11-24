@@ -33,9 +33,20 @@ class Processor
 
   def run
     fetch_products(ORDER_FILE)
-    @products.each { |p| puts p[:original] }
 
-    total = calculate_total_cost
-    puts "----------\nTotal: $#{total}"
+    puts create_packing_slip
+  end
+
+  def create_packing_slip
+    output = ''
+
+    @products.each do |p| 
+      output += "#{p[:original]}\n"
+    end
+
+    output += "----------\n"
+    output += "Total: $#{calculate_total_cost}"
+
+    output
   end
 end
