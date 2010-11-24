@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'processor'
 
 describe Processor do
   subject { @processor = Processor.new }
@@ -14,12 +13,5 @@ describe Processor do
     product = subject.parse_product_line('1 x violin: $2000')
 
     product[:total].should == 2000
-  end
-
-  it "calculate totals" do
-    products = [{:total => 2000}]
-    subject.expects(:products).returns(products)
-
-    subject.calculate_total_cost.should == 2000
   end
 end

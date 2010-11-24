@@ -7,8 +7,9 @@ Feature: Physical Products
     Then I should print a packing slip:
     """
     1 x violin: $2000
-    ----------
+    ---------
     Total: $2000
+
     """
 
   Scenario: Process an order for a multiple physical products
@@ -19,6 +20,7 @@ Feature: Physical Products
     """
     1 x violin: $2000
     1 x cello: $3000
-    ----------
+    ---------
     Total: $5000
+
     """

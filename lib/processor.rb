@@ -21,32 +21,11 @@ class Processor
     end
   end
 
-  def calculate_total_cost
-    total = 0
-
-    products.each do |product|
-      total += product[:total].to_i
-    end
-
-    total
-  end
-
   def run
     fetch_products(ORDER_FILE)
 
-    puts create_packing_slip
-  end
-
-  def create_packing_slip
-    output = ''
-
-    @products.each do |p| 
-      output += "#{p[:original]}\n"
-    end
-
-    output += "----------\n"
-    output += "Total: $#{calculate_total_cost}"
-
-    output
+    packing_list = PackingSlip.new
+    packing_list.products = @products
+    puts packing_list.render
   end
 end
