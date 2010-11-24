@@ -14,9 +14,11 @@ class Processor
   end
 
   def parse_product_line(product_line)
-    match = /1 x violin: \$(\d+)/.match(product_line)
+    match = /1 x (\w+): \$(\d+)/.match(product_line)
 
-    { :original => product_line, :total => match[1].to_i }
+    if match
+      { :original => product_line, :product => match[1], :total => match[2].to_i }
+    end
   end
 
   def calculate_total_cost
