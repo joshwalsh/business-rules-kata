@@ -1,12 +1,13 @@
 class Processor
   attr_reader :products
 
-  def initialize
+  def initialize(order_file)
+    @order_file = order_file
     @products = []
   end
 
-  def fetch_products(order_file)
-    order_contents = File.read(order_file)
+  def fetch_products
+    order_contents = File.read(@order_file)
 
     order_contents.split("\n").each do |product_line|
       @products << parse_product_line(product_line)
@@ -25,7 +26,7 @@ class Processor
   end
 
   def run
-    fetch_products(ORDER_FILE)
+    fetch_products
 
     packing_list = PackingSlip.new
     packing_list.products = @products
