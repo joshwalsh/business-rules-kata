@@ -5,25 +5,25 @@ describe PackingSlip do
     @packing_slip = PackingSlip.new 
 
     @packing_slip.products = [
-      {:original => "1 x violin: $2000", :price => 2000},
-      {:original => "1 x cello: $3000", :price => 3000},
-      {:original => "1 x trumpet: $500", :price => 500},
-      {:original => "1 x flute: $500", :price => 500}
+      {:original => "3 x violin: $2000", :quantity => 3, :price => 2000},
+      {:original => "2 x cello: $3000", :quantity => 2, :price => 3000},
+      {:original => "1 x trumpet: $500", :quantity => 1, :price => 500},
+      {:original => "1 x flute: $500", :quantity => 1, :price => 500}
     ] 
   }
 
   it "calculate totals" do
-    @packing_slip.calculate_total_cost.should == 6000
+    @packing_slip.calculate_total_cost.should == 13000
   end
   
   it "renders a packing slip" do
     @packing_slip.render.should == <<eos
-1 x violin: $2000
-1 x cello: $3000
+3 x violin: $2000
+2 x cello: $3000
 1 x trumpet: $500
 1 x flute: $500
 ---------
-Total: $6000
+Total: $13000
 eos
   end
 end

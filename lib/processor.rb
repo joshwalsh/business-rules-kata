@@ -14,11 +14,14 @@ class Processor
   end
 
   def parse_product_line(product_line)
-    match = /1 x (\w+): \$(\d+)/.match(product_line)
+    match = /(\d+) x (\w+): \$(\d+)/.match(product_line)
 
-    if match
-      { :original => product_line, :product => match[1], :price => match[2].to_i }
-    end
+    { 
+      :original => product_line, 
+      :quantity => match[1].to_i, 
+      :product => match[2], 
+      :price => match[3].to_i 
+    }
   end
 
   def run

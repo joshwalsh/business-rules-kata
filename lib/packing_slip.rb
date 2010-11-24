@@ -5,7 +5,9 @@ class PackingSlip
     total = 0
 
     @products.each do |product|
-      total += product[:price].to_i
+      price = product[:price]
+      quantity = product[:quantity]
+      total += price * quantity
     end
 
     total

@@ -25,3 +25,15 @@ Feature: Physical Products
 
     """
 
+  Scenario: Process an order for a multiple quantities of physical products
+    When a customer orders 3 "violin" for $2000
+    And a customer orders 2 "cello" for $3000
+    When the order is placed
+    Then I should print a packing slip:
+    """
+    3 x violin: $2000
+    2 x cello: $3000
+    ---------
+    Total: $12000
+
+    """
