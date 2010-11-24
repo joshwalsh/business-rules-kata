@@ -9,9 +9,9 @@ describe Processor do
     subject.fetch_products('foo.txt').should == ['1 x violin: $2000']
   end
 
-  it "pulls a total from a product line" do
+  it "pulls a price from a product line" do
     product = subject.parse_product_line('1 x violin: $2000')
 
-    product[:total].should == 2000
+    product[:price].should == 2000
   end
 end

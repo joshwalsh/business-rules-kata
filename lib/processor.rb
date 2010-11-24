@@ -17,7 +17,7 @@ class Processor
     match = /1 x (\w+): \$(\d+)/.match(product_line)
 
     if match
-      { :original => product_line, :product => match[1], :total => match[2].to_i }
+      { :original => product_line, :product => match[1], :price => match[2].to_i }
     end
   end
 

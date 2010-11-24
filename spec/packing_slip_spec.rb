@@ -5,10 +5,10 @@ describe PackingSlip do
     @packing_slip = PackingSlip.new 
 
     @packing_slip.products = [
-      {:original => "1 x violin: $2000", :total => 2000},
-      {:original => "1 x cello: $3000", :total => 3000},
-      {:original => "1 x trumpet: $500", :total => 500},
-      {:original => "1 x flute: $500", :total => 500}
+      {:original => "1 x violin: $2000", :price => 2000},
+      {:original => "1 x cello: $3000", :price => 3000},
+      {:original => "1 x trumpet: $500", :price => 500},
+      {:original => "1 x flute: $500", :price => 500}
     ] 
   }
 
