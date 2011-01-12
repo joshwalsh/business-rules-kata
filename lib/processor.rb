@@ -15,7 +15,7 @@ class Processor
   end
 
   def parse_product_line(product_line)
-    match = /(\d+) x (\w+): \$(\d+)/.match(product_line)
+    match = /(\d+) x (\w+) = \$(\d+)/.match(product_line)
 
     { 
       :original => product_line, 
