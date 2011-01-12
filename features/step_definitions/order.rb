@@ -1,6 +1,6 @@
 Given /^a customer orders (\d+) (\w+): "([^"]*)" for \$(\d+\.?\d+)$/ do |quantity, type, product, dollars|
   @products ||= []
-  @products << "#{quantity} x #{product} = $#{dollars}"
+  @products << "#{type}: #{quantity} x #{product} = $#{dollars}"
 end
 
 When /^the order is placed$/ do

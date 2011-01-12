@@ -15,13 +15,23 @@ class Processor
   end
 
   def parse_product_line(product_line)
-    match = /(\d+) x (\w+) = \$(\d+)/.match(product_line)
+    match = /(\w+): (\d+) x (\w+) = \$(\d+)/.match(product_line)
 
-    { 
-      :original => product_line, 
-      :quantity => match[1].to_i, 
-      :product => match[2], 
-      :price => match[3].to_i 
+    type = match[1]
+    type = "product" if type == "products"
+
+    quantity = match[2].to_i
+    product = match[3]
+    price = match[4].to_i
+
+    formatted_product_line = "#{type}: #{quantity} x #{product} = $#{price}"
+
+    {
+      :original => formatted_product_line, 
+      :type => type,
+      :quantity => quantity,
+      :product => product,
+      :price => price
     }
   end
 
