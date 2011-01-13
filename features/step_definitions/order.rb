@@ -1,5 +1,6 @@
 Given /^a customer orders (\d+) (\w+): "([^"]*)" for \$(\d+\.?\d+)$/ do |quantity, type, product, dollars|
   @products ||= []
+  type = "product" if type == "products"
   @products << "#{type}: #{quantity} x #{product} = $#{dollars}"
 end
 

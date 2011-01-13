@@ -27,3 +27,21 @@ Total: $13000
 eos
   end
 end
+
+
+__END__
+
+describe PackingSlip do
+  before do
+    @packing_slip.products = [
+      mock('Product', render: 'blah1', cost...),
+      mock('Product', render: 'blah2')
+    ]
+  end
+
+  it "renders a packing slip" do
+    @packing_slip.render.should == <<eos
+blah1
+blah2
+-------
+Total: xxx
