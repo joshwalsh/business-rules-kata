@@ -1,17 +1,17 @@
 class Processor
-  def initialize(order_file)
-    @order_file = order_file
+  attr_accessor :order
+
+  def self.new_with_order(order_contents)
+    processor = self.new
+    processor.order = Order.new(order_contents)
+    processor
   end
 
-  def fetch_order
-    Order.new(@order_file)
+  def packing_slip
+    @packing_slip ||= PackingSlip.new_with_order(@order)
   end
 
-  def run
-    order = fetch_order
-
-    packing_list = PackingSlip.new
-    packing_list.products = order.products
-    puts packing_list.render
+  def render
+    packing_slip.render
   end
 end

@@ -1,15 +1,21 @@
 class PackingSlip
-  attr_accessor :products
+  attr_accessor :order
+
+  def self.new_with_order(order)
+    packing_slip = self.new
+    packing_slip.order = order
+    packing_slip
+  end
 
   def calculate_total_cost
-    @products.inject(0) do |total, product|
+    @order.products.inject(0) do |total, product|
       total + product.total_price
     end
   end
 
   def render_products
     output = ''
-    @products.each do |product|
+    @order.products.each do |product|
       output += ProductRenderer.render_product(product) + "\n"
     end
     output

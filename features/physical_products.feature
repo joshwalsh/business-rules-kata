@@ -25,7 +25,6 @@ Feature: Physical Products
 
     """
 
-    @wip
   Scenario: Process an order for a multiple quantities of physical products
     When a customer orders 3 products: "violin" for $2000
     And a customer orders 2 products: "cello" for $3000

@@ -2,14 +2,18 @@ require 'spec_helper'
 
 describe PackingSlip do
   before(:each) { 
-    @packing_slip = PackingSlip.new 
+    order = mock('Order')
 
-    @packing_slip.products = [
-      mock('Product', type: 'product', quantity: 3, name: 'violin', price: 2000, total_price: 6000),
-      mock('Product', type: 'product', quantity: 2, name: 'cello', price: 3000, total_price: 6000),
-      mock('Product', type: 'product', quantity: 1, name: 'trumpet', price: 500, total_price: 500),
-      mock('Product', type: 'product', quantity: 1, name: 'flute', price: 500, total_price: 500)
-    ] 
+    order.stub :products do
+      [
+        mock('Product', type: 'product', quantity: 3, name: 'violin', price: 2000, total_price: 6000),
+        mock('Product', type: 'product', quantity: 2, name: 'cello', price: 3000, total_price: 6000),
+        mock('Product', type: 'product', quantity: 1, name: 'trumpet', price: 500, total_price: 500),
+        mock('Product', type: 'product', quantity: 1, name: 'flute', price: 500, total_price: 500)
+      ]
+    end
+
+    @packing_slip = PackingSlip.new_with_order(order)
   }
 
   it "calculate totals" do
