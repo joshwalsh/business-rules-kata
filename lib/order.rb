@@ -4,9 +4,15 @@ class Order
   def initialize(order_file)
     order_contents = File.read(order_file)
  
-    @products ||= []
+    @products = []
     order_contents.split("\n").each do |product_line|
       @products << LineItem.new_with_product_line(product_line)
+    end
+  end
+
+  def order_total
+    @products.inject(0) do |total, product|
+      total + product.total_price
     end
   end
 end
