@@ -6,7 +6,7 @@ Feature: Physical Products
     When the order is placed
     Then I should print a packing slip:
     """
-    product: 1 x violin = $2000
+    1 x violin : $2000 => $2000
     ---------
     Total: $2000
 
@@ -18,21 +18,22 @@ Feature: Physical Products
     When the order is placed
     Then I should print a packing slip:
     """
-    product: 1 x violin = $2000
-    product: 1 x cello = $3000
+    1 x violin : $2000 => $2000
+    1 x cello : $3000 => $3000
     ---------
     Total: $5000
 
     """
 
+    @wip
   Scenario: Process an order for a multiple quantities of physical products
     When a customer orders 3 products: "violin" for $2000
     And a customer orders 2 products: "cello" for $3000
     When the order is placed
     Then I should print a packing slip:
     """
-    product: 3 x violin = $2000
-    product: 2 x cello = $3000
+    3 x violin : $2000 => $6000
+    2 x cello : $3000 => $6000
     ---------
     Total: $12000
 
