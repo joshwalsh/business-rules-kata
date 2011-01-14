@@ -5,9 +5,7 @@ class PackingSlip
     total = 0
 
     @products.each do |product|
-      price = product[:price]
-      quantity = product[:quantity]
-      total += price * quantity
+      total += product.total_price
     end
 
     total
@@ -16,7 +14,7 @@ class PackingSlip
   def render_products
     output = ''
     @products.each do |product|
-      output += "#{product[:original]}\n"
+      output += ProductRenderer.render_product(product) + "\n"
     end
     output
   end

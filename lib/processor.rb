@@ -12,7 +12,7 @@ class Processor
     order_contents.split("\n").each do |product_line|
       @products << Product.new_with_product_line(product_line)
     end
-    
+
     @products
   end
 

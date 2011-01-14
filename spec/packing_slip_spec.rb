@@ -5,10 +5,10 @@ describe PackingSlip do
     @packing_slip = PackingSlip.new 
 
     @packing_slip.products = [
-      {:original => "3 x violin: $2000", :quantity => 3, :price => 2000},
-      {:original => "2 x cello: $3000", :quantity => 2, :price => 3000},
-      {:original => "1 x trumpet: $500", :quantity => 1, :price => 500},
-      {:original => "1 x flute: $500", :quantity => 1, :price => 500}
+      mock('Product', type: 'product', quantity: 3, name: 'violin', price: 2000, total_price: 6000),
+      mock('Product', type: 'product', quantity: 2, name: 'cello', price: 3000, total_price: 6000),
+      mock('Product', type: 'product', quantity: 1, name: 'trumpet', price: 500, total_price: 500),
+      mock('Product', type: 'product', quantity: 1, name: 'flute', price: 500, total_price: 500)
     ] 
   }
 
@@ -18,30 +18,12 @@ describe PackingSlip do
   
   it "renders a packing slip" do
     @packing_slip.render.should == <<eos
-3 x violin: $2000
-2 x cello: $3000
-1 x trumpet: $500
-1 x flute: $500
+3 x violin : $2000 => $6000
+2 x cello : $3000 => $6000
+1 x trumpet : $500 => $500
+1 x flute : $500 => $500
 ---------
 Total: $13000
 eos
   end
 end
-
-
-__END__
-
-describe PackingSlip do
-  before do
-    @packing_slip.products = [
-      mock('Product', render: 'blah1', cost...),
-      mock('Product', render: 'blah2')
-    ]
-  end
-
-  it "renders a packing slip" do
-    @packing_slip.render.should == <<eos
-blah1
-blah2
--------
-Total: xxx
