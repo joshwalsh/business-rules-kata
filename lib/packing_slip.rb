@@ -2,13 +2,9 @@ class PackingSlip
   attr_accessor :products
 
   def calculate_total_cost
-    total = 0
-
-    @products.each do |product|
-      total += product.total_price
+    @products.inject(0) do |total, product|
+      total + product.total_price
     end
-
-    total
   end
 
   def render_products
