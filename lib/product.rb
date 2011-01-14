@@ -1,5 +1,5 @@
 class Product
-  PRODUCT_LINE_FORMAT = /(\w+): (\d+) x (\w+) = \$(\d+)/
+  PRODUCT_LINE_FORMAT = /(\w+), (\d+), (\w+), (\d+)/
 
   attr_accessor :type, :quantity, :name, :price
 
