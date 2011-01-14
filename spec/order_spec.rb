@@ -16,6 +16,6 @@ describe Order do
   end
 
   it "calculates the total price of the order" do
-    subject.order_total.should == 4000
+    subject.total_price.should == 4000
   end
 end

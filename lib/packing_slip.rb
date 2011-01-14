@@ -7,12 +7,6 @@ class PackingSlip
     packing_slip
   end
 
-  def calculate_total_cost
-    @order.products.inject(0) do |total, product|
-      total + product.total_price
-    end
-  end
-
   def render_products
     output = ''
     @order.products.each do |product|
@@ -25,7 +19,7 @@ class PackingSlip
     output = ''
     output = render_products
     output += "---------\n"
-    output += "Total: $#{calculate_total_cost}\n"
+    output += "Total: $#{@order.total_price}\n"
     output
   end
 end

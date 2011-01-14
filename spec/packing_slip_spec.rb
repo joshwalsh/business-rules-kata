@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PackingSlip do
   before(:each) { 
-    order = mock('Order')
+    order = mock('Order', total_price: 13000)
 
     order.stub :products do
       [
@@ -16,10 +16,6 @@ describe PackingSlip do
     @packing_slip = PackingSlip.new_with_order(order)
   }
 
-  it "calculate totals" do
-    @packing_slip.calculate_total_cost.should == 13000
-  end
-  
   it "renders a packing slip" do
     @packing_slip.render.should == <<eos
 3 x violin : $2000 => $6000

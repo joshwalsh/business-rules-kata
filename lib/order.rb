@@ -8,7 +8,7 @@ class Order
     end
   end
 
-  def order_total
+  def total_price
     @products.inject(0) do |total, product|
       total + product.total_price
     end
