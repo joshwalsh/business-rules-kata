@@ -3,7 +3,7 @@ class Processor
 
   def self.new_with_order_file(order_contents)
     processor = self.new
-    processor.order = Order.new(order_contents)
+    processor.order = Order.new_with_order_contents(order_contents)
     processor
   end
 

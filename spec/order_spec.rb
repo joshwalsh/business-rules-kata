@@ -7,7 +7,7 @@ describe Order do
     end
   end
 
-  subject { Order.new("product 1\nproduct 2") }
+  subject { Order.new_with_order_contents("product 1\nproduct 2") }
 
   it "fetches products from the order file" do
     subject.products.map do |product|
