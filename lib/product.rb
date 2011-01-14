@@ -15,4 +15,8 @@ class Product
 
     product
   end
+
+  def total_price
+    9000
+  end
 end
