@@ -1,10 +1,10 @@
-class Product
-  PRODUCT_LINE_FORMAT = /(\w+), (\d+), (\w+), (\d+)/
+class LineItem
+  LINE_ITEM_FORMAT = /(\w+), (\d+), (\w+), (\d+)/
 
   attr_accessor :type, :quantity, :name, :price
 
   def self.new_with_product_line(product_line)
-    match = PRODUCT_LINE_FORMAT.match(product_line)
+    match = LINE_ITEM_FORMAT.match(product_line)
 
     product = self.new
 

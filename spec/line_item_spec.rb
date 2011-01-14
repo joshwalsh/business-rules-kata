@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Product do
-  subject { Product.new_with_product_line("product, 3, cello, 3000") }
+describe LineItem do
+  subject { LineItem.new_with_product_line("product, 3, cello, 3000") }
 
   context "when initialized" do
     its(:type) { should == 'product' }

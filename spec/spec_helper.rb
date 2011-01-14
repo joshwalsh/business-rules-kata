@@ -1,5 +1,5 @@
 require 'mocha'
 require 'processor'
 require 'packing_slip'
-require 'product'
+require 'line_item'
 require 'product_renderer'
