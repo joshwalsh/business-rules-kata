@@ -17,6 +17,6 @@ class Product
   end
 
   def total_price
-    9000
+    @price * @quantity
   end
 end
