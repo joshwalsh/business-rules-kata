@@ -10,31 +10,10 @@ class Processor
     order_contents = File.read(@order_file)
 
     order_contents.split("\n").each do |product_line|
-      @products << parse_product_line(product_line)
+      @products << Product.new_with_product_line(product_line)
     end
-  end
-
-  # Abstract
-  # Product Class (
-  def parse_product_line(product_line)
-    match = /(\w+): (\d+) x (\w+) = \$(\d+)/.match(product_line)
-
-    type = match[1]
-    type = "product" if type == "products"
-
-    quantity = match[2].to_i
-    product = match[3]
-    price = match[4].to_i
-
-    formatted_product_line = "#{type}: #{quantity} x #{product} = $#{price}"
-
-    {
-      :original => formatted_product_line, 
-      :type => type,
-      :quantity => quantity,
-      :product => product,
-      :price => price
-    }
+    
+    @products
   end
 
   def run
