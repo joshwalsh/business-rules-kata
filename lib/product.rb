@@ -1,16 +1,18 @@
 class Product
-  PRODUCT_INPUT_FORMAT = /(\w+): (\d+) x (\w+) = \$(\d+)/
+  PRODUCT_LINE_FORMAT = /(\w+): (\d+) x (\w+) = \$(\d+)/
 
-  attr_reader :type, :quantity, :product, :price
+  attr_accessor :type, :quantity, :name, :price
 
-  def parse_product_line(product_line)
-    match = PRODUCT_INPUT_FORMAT.match(product_line)
+  def self.new_with_product_line(product_line)
+    match = PRODUCT_LINE_FORMAT.match(product_line)
 
-    @type = match[1]
-    @type = "product" if match[1] == "products"
+    product = self.new
 
-    @quantity = match[2].to_i
-    @product = match[3]
-    @price = match[4].to_i
+    product.type = match[1]
+    product.quantity = match[2].to_i
+    product.name = match[3]
+    product.price = match[4].to_i
+
+    product
   end
 end

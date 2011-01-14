@@ -45,14 +45,3 @@ class Processor
     puts packing_list.render
   end
 end
-
-#class Product
-
-  #def self.new_with_product_line product_line
-    ## parse...
-    #self.new(type, quatnt...)
-  #end
-
-#end
-
-
