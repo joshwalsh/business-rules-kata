@@ -1,7 +1,7 @@
 class Processor
   attr_accessor :order
 
-  def self.new_with_order(order_contents)
+  def self.new_with_order_file(order_contents)
     processor = self.new
     processor.order = Order.new(order_contents)
     processor

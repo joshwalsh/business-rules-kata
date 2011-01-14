@@ -5,7 +5,7 @@ require LIB + '/lib/line_item'
 require LIB + '/lib/order'
 require LIB + '/lib/product_renderer'
 
-order_file_path = File.dirname(__FILE__) + "/tmp/aruba/order.txt"
+ORDER_FILE_PATH = File.dirname(__FILE__) + "/tmp/aruba/order.txt"
 
-runner = Processor.new_with_order(File.read order_file_path)
+runner = Processor.new_with_order_file(File.read ORDER_FILE_PATH)
 puts runner.render
