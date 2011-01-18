@@ -12,6 +12,6 @@ class Processor
   end
 
   def process
-    packing_slip.render
+    packing_slip.render_for "customer"
   end
 end

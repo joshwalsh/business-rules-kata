@@ -15,9 +15,9 @@ class PackingSlip
     output
   end
 
-  def render
+  def render_for(receiver)
     output = ''
-    output += "PACKING SLIP\n"
+    output += receiver.upcase + " PACKING SLIP\n"
     output += "====================\n"
     output += render_products
     output += "---------\n"

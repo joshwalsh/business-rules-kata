@@ -16,9 +16,9 @@ describe PackingSlip do
     @packing_slip = PackingSlip.new_with_order(order)
   }
 
-  it "renders a packing slip" do
-    @packing_slip.render.should == <<eos
-PACKING SLIP
+  it "renders a customer packing slip" do
+    @packing_slip.render_for("customer").should == <<eos
+CUSTOMER PACKING SLIP
 ====================
 3 x violin : $2000 => $6000
 2 x cello : $3000 => $6000
