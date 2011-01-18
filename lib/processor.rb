@@ -11,7 +11,7 @@ class Processor
     @packing_slip ||= PackingSlip.new_with_order(@order)
   end
 
-  def render
+  def process
     packing_slip.render
   end
 end
