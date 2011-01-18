@@ -17,7 +17,9 @@ class PackingSlip
 
   def render
     output = ''
-    output = render_products
+    output += "PACKING SLIP\n"
+    output += "====================\n"
+    output += render_products
     output += "---------\n"
     output += "Total: $#{@order.total_price}\n"
     output

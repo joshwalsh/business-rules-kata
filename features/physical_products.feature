@@ -6,6 +6,8 @@ Feature: Physical Products
     When the order is placed
     Then I should print a packing slip:
     """
+    PACKING SLIP
+    ====================
     1 x violin : $2000 => $2000
     ---------
     Total: $2000
@@ -18,6 +20,8 @@ Feature: Physical Products
     When the order is placed
     Then I should print a packing slip:
     """
+    PACKING SLIP
+    ====================
     1 x violin : $2000 => $2000
     1 x cello : $3000 => $3000
     ---------
@@ -31,6 +35,8 @@ Feature: Physical Products
     When the order is placed
     Then I should print a packing slip:
     """
+    PACKING SLIP
+    ====================
     3 x violin : $2000 => $6000
     2 x cello : $3000 => $6000
     ---------

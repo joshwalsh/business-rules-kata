@@ -18,6 +18,8 @@ describe PackingSlip do
 
   it "renders a packing slip" do
     @packing_slip.render.should == <<eos
+PACKING SLIP
+====================
 3 x violin : $2000 => $6000
 2 x cello : $3000 => $6000
 1 x trumpet : $500 => $500
