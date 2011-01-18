@@ -1,5 +1,5 @@
 class LineItem
-  LINE_ITEM_FORMAT = /(\w+), (\d+), (\w+), (\d+)/
+  LINE_ITEM_FORMAT = /(\w+), (\d+), (.+), (\d+)/
 
   attr_accessor :type, :quantity, :name, :price
 

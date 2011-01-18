@@ -8,4 +8,4 @@ require LIB + '/lib/product_renderer'
 ORDER_FILE_PATH = File.dirname(__FILE__) + "/tmp/aruba/order.txt"
 
 processor = Processor.new_with_order_file(File.read ORDER_FILE_PATH)
-puts processor.process
+processor.process

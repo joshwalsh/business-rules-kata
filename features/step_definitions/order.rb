@@ -9,6 +9,6 @@ When /^the order is placed$/ do
   run "ruby ../../processor.rb"
 end
 
-Then /^I should print a packing slip:$/ do |packing|
-  Then 'the output should contain:', packing
+Then /^I should print paperwork:$/ do |packing|
+  Then 'the output should contain exactly:', packing
 end

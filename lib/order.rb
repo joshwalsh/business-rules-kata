@@ -19,5 +19,11 @@ class Order
       total + product.total_price
     end
   end
+
+  def has_royalties?
+    @products.detect do |product|
+      product.type == 'book'
+    end
+  end
 end
 

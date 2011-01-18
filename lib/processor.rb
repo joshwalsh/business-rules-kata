@@ -1,4 +1,5 @@
 class Processor
+  BLANK_LINE = "\n"
   attr_accessor :order
 
   def self.new_with_order_file(order_contents)
@@ -12,6 +13,11 @@ class Processor
   end
 
   def process
-    packing_slip.render_for "customer"
+    puts packing_slip.render_for "customer"
+
+    if (@order.has_royalties?)
+      puts BLANK_LINE
+      puts packing_slip.render_for "royalty dept"
+    end
   end
 end
