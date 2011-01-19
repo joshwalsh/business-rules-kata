@@ -21,8 +21,18 @@ class Order
   end
 
   def has_royalties?
+    check_for_products_of_type 'book'
+  end
+
+  def has_memberships?
+    check_for_products_of_type 'membership'
+  end
+
+  private
+
+  def check_for_products_of_type(type)
     @products.detect do |product|
-      product.type == 'book'
+      product.type == type
     end
   end
 end

@@ -6,4 +6,10 @@ describe ProductRenderer do
 
     ProductRenderer.render_product(product).should == "2 x cello : $3000 => $9000"
   end
+
+  it "shows an activation message for new memberships" do
+    product = mock('Product', type: 'membership', quantity: 2, name: 'cello', price: 3000, total_price: 9000)
+
+    ProductRenderer.render_product(product).should == "2 x cello : $3000 => $9000 (activated)"
+  end
 end
