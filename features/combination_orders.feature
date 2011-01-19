@@ -3,8 +3,8 @@ Feature: Combination Orders
 
   @wip
   Scenario: Process an order for a book and a physical product
-    When a customer orders 1 book: "A Walk in the Woods" for $15
-    When a customer orders 1 product: "Back Scratcher" for $5
+    Given a customer orders 1 book: "A Walk in the Woods" for $15
+    And a customer orders 1 product: "Back Scratcher" for $5
     When the order is placed
     Then I should print paperwork:
     """
