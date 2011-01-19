@@ -1,4 +1,4 @@
-Given /^a customer orders (\d+) (\w+): "([^"]*)" for \$(\d+\.?\d+)$/ do |quantity, type, product, dollars|
+Given /^a customer orders (\d+) (\w+): "([^"]*)" for \$(\d+)$/ do |quantity, type, product, dollars|
   @products ||= []
   type = "product" if type == "products"
   @products << "#{type}, #{quantity}, #{product}, #{dollars}"
